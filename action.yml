@@ -1,0 +1,16 @@
+# app service settings action
+name: "Azure App Service Settings"
+description: "Configure Azure Apps with app settings, connection strings and other general configuration settings"
+inputs:
+  app-name: # id of input
+    description: "Name of the Azure Web App"
+    required: true
+outputs:
+  webapp-url: # id of output
+    description: "URL to work with your webapp"
+branding:
+  icon: "webapp.svg"
+  color: "blue"
+runs:
+  using: "node12"
+  main: "lib/main.js"

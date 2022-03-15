@@ -1,0 +1,26 @@
+{
+  "name": "app-service-settings",
+  "version": "1.0.0",
+  "description": "Update/Add Azure WebApp settings",
+  "main": "lib/main.js",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@types/q": "^1.5.2",
+    "azure-actions-appservice-rest": "^1.0.2",
+    "azure-actions-webclient": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^12.7.9",
+    "@types/jest": "^25.1.4",
+    "jest": "^25.1.0",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.6.3",
+    "ts-jest": "^25.2.1"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "author": "Shivangi Mittal",
+  "license": "MIT"
+}
