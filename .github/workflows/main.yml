@@ -1,15 +1,6 @@
 on: [push]
 
 jobs:
-  install_dependencies:
-    runs-on: ubuntu-latest
-    name: Push config
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Install Packages
-        run: npm ci
-
   push_config:
     strategy:
       matrix:
