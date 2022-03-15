@@ -2,7 +2,7 @@ on: [push]
 
 jobs:
   config_push_job:
-    runs_on: ubuntu_latest
+    runs-on: ubuntu-latest
     name: Push config
     steps:
       - name: Push config
