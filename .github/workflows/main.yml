@@ -9,11 +9,11 @@ jobs:
     name: Push config
     steps:
       - name: Push config
+        id: config
         uses: ./
         with:
-          app-name: ${{ matrix.appName }}
+          app-name: test
         env:
-          ENV_KEY1: true
-          ENV_KEY2: false
-          ENV_KEY3: 1
-          ENV_KEY4: "Ok"
+          FOO_BAZ: true
+          FOO_BAR: false
+          FOO_NUM: 1
