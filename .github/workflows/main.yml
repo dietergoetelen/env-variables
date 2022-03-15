@@ -20,7 +20,7 @@ jobs:
       - name: Push config
         uses: ./
         with:
-          app-name: ${{ appName }}
+          app-name: ${{ matrix.appName }}
         env:
           ENV_KEY1: true
           ENV_KEY2: false
