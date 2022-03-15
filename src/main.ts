@@ -29,7 +29,7 @@ export async function main() {
     );
     */
     console.log("getting the configuration");
-    console.log(process.env.configuration);
+    console.log(process.env.FOO_BAZ);
     console.log("post configuration");
   } catch (error) {
     console.log(JSON.stringify(error));
