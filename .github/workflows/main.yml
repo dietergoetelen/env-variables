@@ -16,6 +16,7 @@ jobs:
         with:
           app-name: test
         env:
-          FOO_BAZ: true
-          FOO_BAR: false
-          FOO_NUM: 1
+          ENV_BAZ: true
+          ENV_BAR: false
+          ENV_NUM: 1
+          ENV_STRING: "OK"
