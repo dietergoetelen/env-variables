@@ -5,9 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     name: Push config
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: Push config
         id: config
-        uses: dietergoetelen/env-variable@1.0.0
+        uses: dietergoetelen/env-variable@v1
         with:
           app-name: test
         env:
