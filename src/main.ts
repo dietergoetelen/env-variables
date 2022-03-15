@@ -28,15 +28,15 @@ export async function main() {
       appService
     );
     */
-    console.log("getting the configuration");
     const mapping = Object.keys(process.env)
       .filter((key) => key.startsWith("ENV_"))
       .map((key) => ({
-        key: key.substring(4), // remove ENV_
+        name: key.substring(4), // remove ENV_
         value: process.env[key],
+        slotSetting: false,
       }));
+    console.log("storing following env variables:");
     console.log(JSON.stringify(mapping));
-    console.log("post configuration");
   } catch (error) {
     console.log(JSON.stringify(error));
     core.setFailed(error);
