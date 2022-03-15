@@ -7,6 +7,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Install Packages
+        run: npm ci
       - name: Push config
         id: config
         uses: ./
