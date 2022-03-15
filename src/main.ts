@@ -1,33 +1,28 @@
 import * as core from "@actions/core";
-// import { AzureAppService } from "azure-actions-appservice-rest/lib/Arm/azure-app-service";
-// import { AzureAppServiceUtility } from "azure-actions-appservice-rest/lib/Utilities/AzureAppServiceUtility";
-// import { AzureResourceFilterUtility } from "azure-actions-appservice-rest/lib/Utilities/AzureResourceFilterUtility";
-// import { IAuthorizationHandler } from "azure-actions-webclient/lib/AuthHandler/IAuthorizationHandler";
-// import { getHandler } from "azure-actions-webclient/lib/AuthorizationHandlerFactory";
+import { AzureAppService } from "azure-actions-appservice-rest/lib/Arm/azure-app-service";
+import { AzureAppServiceUtility } from "azure-actions-appservice-rest/lib/Utilities/AzureAppServiceUtility";
+import { AzureResourceFilterUtility } from "azure-actions-appservice-rest/lib/Utilities/AzureResourceFilterUtility";
+import { IAuthorizationHandler } from "azure-actions-webclient/lib/AuthHandler/IAuthorizationHandler";
+import { getHandler } from "azure-actions-webclient/lib/AuthorizationHandlerFactory";
 
 export async function main() {
   try {
-    /*
-    let webAppName: string = core.getInput("app-name", { required: true });
-    let slotName: string = core.getInput("slot-name", { required: false });
-    let endpoint: IAuthorizationHandler = await getHandler();
+    const webAppName: string = core.getInput("app-name", { required: true });
+    const endpoint: IAuthorizationHandler = await getHandler();
 
-    let appDetails = await AzureResourceFilterUtility.getAppDetails(
+    const appDetails = await AzureResourceFilterUtility.getAppDetails(
       endpoint,
       webAppName
     );
-    let resourceGroupName = appDetails["resourceGroupName"];
-
-    let appService: AzureAppService = new AzureAppService(
+    const resourceGroupName = appDetails["resourceGroupName"];
+    const appService: AzureAppService = new AzureAppService(
       endpoint,
       resourceGroupName,
-      webAppName,
-      slotName
+      webAppName
     );
-    let appServiceUtility: AzureAppServiceUtility = new AzureAppServiceUtility(
-      appService
-    );
-    */
+    const appServiceUtility: AzureAppServiceUtility =
+      new AzureAppServiceUtility(appService);
+
     const mapping = Object.keys(process.env)
       .filter((key) => key.startsWith("ENV_"))
       .map((key) => ({
@@ -35,6 +30,9 @@ export async function main() {
         value: process.env[key],
         slotSetting: false,
       }));
+
+    appServiceUtility.updateAndMonitorAppSettings(mapping, null);
+
     console.log("storing following env variables:");
     console.log(JSON.stringify(mapping));
   } catch (error) {
