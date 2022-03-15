@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Push config
         id: config
-        uses: dietergoetelen/env-variables
+        uses: dietergoetelen/env-variable@1.0.0
         with:
           app-name: test
         env:
