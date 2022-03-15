@@ -1,5 +1,5 @@
 {
-  "name": "app-service-settings",
+  "name": "env-variables",
   "version": "1.0.0",
   "description": "Update/Add Azure WebApp settings",
   "main": "lib/main.js",
