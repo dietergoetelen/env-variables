@@ -9,7 +9,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Push config
         id: config
-        uses: dietergoetelen/env-variable@v1
+        uses: ./lib/main.js
         with:
           app-name: test
         env:
