@@ -29,7 +29,13 @@ export async function main() {
     );
     */
     console.log("getting the configuration");
-    console.log(process.env.FOO_BAZ);
+    const mapping = Object.keys(process.env)
+      .filter((key) => key.startsWith("ENV_"))
+      .map((key) => ({
+        key: key.substring(4), // remove ENV_
+        value: process.env[key],
+      }));
+    console.log(JSON.stringify(mapping));
     console.log("post configuration");
   } catch (error) {
     console.log(JSON.stringify(error));
